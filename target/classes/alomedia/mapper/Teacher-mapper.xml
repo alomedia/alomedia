@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="himedia.project.alomedia.repository.TeacherRepository">
+
+	<!--
+	김부경
+	  -->
+	<select id="findAttendanceByCurriculum" resultType="Attendance">
+	select m.id, a.totalattendance, a.late, a.leaveearly, a.absent
+	from member m
+	join attendance a on m.id = a.id
+	where m.curriculum like #{curriculum} and m.usertype like '수강생';
+	</select>
+
+	<insert id="AttendanceCheck" parameterType="Map" >
+		insert into AttendanceCheck(lectureId, attendanceDate, attendanceNum) 
+		values(#{check.lectureId}, #{check.attendanceDate}, #{check.attendanceNum})
+	</insert>
+	
+	<select id="findAttendanceTime" resultType="AttendanceList">
+		WITH RankedAttendance AS (
+	    SELECT
+	        id,
+	        lectureId,
+	        attendanceDate,
+	        attendanceTime,
+	        ROW_NUMBER() OVER (PARTITION BY id, attendanceDate ORDER BY attendanceTime) AS rnk
+	    FROM
+	        AttendanceList
+	    WHERE
+	        id = #{id} AND attendanceDate = #{attendanceDate}
+	)
+	SELECT
+	    id,
+	    lectureId,
+	    attendanceDate,
+	    attendanceTime
+	FROM
+	    RankedAttendance
+	WHERE
+	    rnk = 1;
+	</select>
+	
+	<select id="searchNotice" resultType="Notice">
+		SELECT * FROM notice WHERE lectureId = (select lectureId 
+							from lectureList 
+							where lectureName like #{curriculum}) and
+		<if test="type == 'noticeName'">
+			noticeName like CONCAT('%',#{keyword},'%') order by noticeId desc
+		</if>
+		<if test="type == 'noticeContent'">
+			noticeContent like CONCAT('%',#{keyword},'%') order by noticeId desc
+		</if>
+	</select>
+	
+	<!--
+	우종곤
+	 -->
+	<select id="findAllNoticeByCurriculum" resultType="Notice">
+		select * 
+		from notice 
+		where lectureId = (select lectureId 
+							from lectureList 
+							where lectureName like #{curriculum}) order by noticeId desc
+	</select>
+	<select id="findLectureIdByName" resultType="Long">
+		select lectureId
+		from lectureList 
+		where lectureName like (select curriculum 
+								from member 
+								where name like #{name} limit 1)
+								limit 1
+	</select>
+	
+	<insert id="saveNotice" useGeneratedKeys="true" keyProperty="notice.noticeId" 
+		parameterType="Notice">
+		insert into Notice(lectureId,noticeName,noticeContent,noticeWriter,noticeDate)
+		values(#{lectureId},#{notice.noticeName},#{notice.noticeContent},#{notice.noticeWriter},#{notice.noticeDate})
+	</insert>
+	
+	<insert id="saveExamList" useGeneratedKeys="true" keyProperty="examList.examId" 
+		parameterType="ExamList">
+		insert into examList(lectureId,examName,timeLimit)
+		values(#{lectureId},#{examList.examName},#{examList.timeLimit})
+	</insert>
+	
+	<insert id="saveExam" parameterType="Exam">
+		insert into exam(examId,lectureId,questionNum,examContent,examAllotment) 
+		values(#{examId},#{lectureId},#{questionNum},#{exam.examContent},#{exam.examAllotment})
+	</insert>
+	<!--
+	정시운
+	 -->
+	<update id="updateMypage" parameterType="Member">
+		UPDATE Member
+		SET
+			password = #{password},
+			phone = #{phone},
+			address = #{address},
+			mail = #{mail}
+		WHERE
+			id = #{id}	
+	</update>
+</mapper>
+

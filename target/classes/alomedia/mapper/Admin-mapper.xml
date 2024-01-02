@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="himedia.project.alomedia.repository.AdminRepository">
+
+	<!-- 
+	 우종곤
+	-->
+	
+	<insert id="saveMember" useGeneratedKeys="true" keyProperty="id"
+		parameterType="Member">
+		insert into
+		member(name,phone,mail,userType,birth,gender,address,curriculum)
+		values(#{name},#{phone},#{mail},#{userType},#{birth},#{gender},#{address},#{curriculum})
+	</insert>
+
+	<insert id="saveLecture" useGeneratedKeys="true"
+		keyProperty="lectureId" parameterType="LectureList">
+		INSERT INTO lectureList(lectureName,lectureTeacher,lectureStart,lectureEnd,lecturePeople,lectureRoom,lectureTime,lectureDay)
+		VALUES(#{lectureName},#{lectureTeacher},#{lectureStart},#{lectureEnd},#{lecturePeople},#{lectureRoom},#{lectureTime},#{lectureDay})
+	</insert>
+
+	<insert id="saveNotice" useGeneratedKeys="true"
+		keyProperty="noticeId" parameterType="Notice">
+		insert into
+		Notice(noticeName,noticeContent,noticeWriter,noticeDate)
+		values(#{noticeName},#{noticeContent},#{noticeWriter},#{noticeDate})
+	</insert>
+	
+	<!-- 
+	 정시운
+	-->
+	<update id="updateMypage" parameterType="Member">
+		UPDATE Member
+		SET
+		password = #{password},
+		phone = #{phone},
+		address = #{address},
+		mail = #{mail}
+		WHERE	id = #{id}
+	</update>
+	
+	<update id="updateLecture" parameterType="LectureList">
+		UPDATE LectureList
+		SET 
+			lectureName = #{updateLectureList.lectureName}, 
+			lectureStart = #{updateLectureList.lectureStart},
+			lectureEnd = #{updateLectureList.lectureEnd},
+			lectureDay = #{updateLectureList.lectureDay},
+			lectureTime = #{updateLectureList.lectureTime},
+			lectureTeacher = #{updateLectureList.lectureTeacher},
+			lectureRoom = #{updateLectureList.lectureRoom},
+			lecturePeople = #{updateLectureList.lecturePeople},
+			lectureState = #{updateLectureList.lectureState}
+		WHERE 
+			lectureId = #{lectureId}
+						
+	</update>
+	
+	<!-- 
+	 김부경
+	-->
+	<select id="searchLecture" resultType="LectureList">
+		SELECT * FROM lectureList WHERE
+		<if test="type == 'lectureTeacher'">
+			lectureTeacher like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="type == 'lectureName'">
+			lectureName like CONCAT('%',#{keyword},'%')
+		</if>
+	</select>
+	
+	<select id="searchMembers" resultType="Member">
+		SELECT * FROM member WHERE
+		<if test="type == 'name'">
+			name like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="type == 'curriculum'">
+			curriculum like CONCAT('%',#{keyword},'%')
+		</if>
+	</select>
+	
+	<select id="searchNotice" resultType="Notice">
+		SELECT * FROM notice WHERE lectureId is null and
+		<if test="type == 'noticeName'">
+			noticeName like CONCAT('%',#{keyword},'%') order by noticeId desc
+		</if>
+		<if test="type == 'noticeContent'">
+			noticeContent like CONCAT('%',#{keyword},'%') order by noticeId desc
+		</if>
+	</select>
+	
+</mapper>
+

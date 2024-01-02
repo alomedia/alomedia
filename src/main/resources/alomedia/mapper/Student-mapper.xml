@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="himedia.project.alomedia.repository.StudentRepository">
+
+
+	<!-- 김부경 -->
+	<select id="findAttendanceNum" resultType="Long">
+		select * from
+		lectureList where lectureName like #{curriculum}
+	</select>
+
+	<select id="findLectureIdByCurriculum" resultType="Long">
+		select * from
+		lectureList where lectureName like #{curriculum}
+	</select>
+
+	<select id="findMemberIdByPhone" resultType="Long">
+		select * from member
+		where phone like #{phone}
+	</select>
+
+	<select id="findAttendanceById" resultType="Attendance">
+		select * from
+		Attendance where id = #{id}
+	</select>
+
+	<select id="attendanceCheck" resultType="Long">
+		select count(*) from
+		AttendanceCheck where
+		lectureId = #{check.lectureId} and attendanceDate
+		= #{check.attendanceDate}
+		and
+		attendanceNum = #{check.attendanceNum}
+	</select>
+
+	<update id="attendancePlus" parameterType="Attendance">
+		UPDATE Attendance SET
+		totalAttendance = #{totalAttendance} + 1 WHERE id = #{id}
+	</update>
+
+	<insert id="insertAttendanceList" parameterType="AttendanceList">
+		insert into
+		AttendanceList(id, lectureId, attendanceDate, attendanceTime)
+		values(#{id}, #{lectureId}, #{attendanceDate}, #{attendanceTime})
+	</insert>
+
+	<!-- 우종곤 -->
+	<select id="findAllNoticeByCurriculum" resultType="Notice">
+		select *
+		from
+		notice
+		where lectureId = (select lectureId
+		from lectureList
+		where
+		lectureName like #{curriculum}) order by noticeId desc
+	</select>
+
+	<insert id="saveExamSubmit" parameterType="ExamSubmit">
+		insert into
+		examSubmit(id, examId, lectureId, questionNum, examContent, ans,
+		examAllotment)
+		values(#{id}, #{examId}, #{lectureId},
+		#{examSubmit.questionNum},
+		#{examSubmit.examContent},#{examSubmit.ans},#{examSubmit.examAllotment})
+	</insert>
+	
+	<insert id="saveSubmitList" parameterType="SubmitList">
+		insert into
+		SubmitList(id, examId,examName,submitTime,state,name)
+		values(#{id},
+		#{examId}, #{examName}, #{strNow}, '시험 중',#{name})
+	</insert>
+
+	<!-- 정시운 -->
+	<update id="updateMypage" parameterType="Member">
+		UPDATE Member
+		SET
+		password = #{password},
+		phone = #{phone},
+		address = #{address},
+		mail =
+		#{mail}
+		WHERE
+		id = #{id}
+	</update>
+
+	<select id="searchNotice" resultType="Notice">
+		SELECT * FROM notice WHERE lectureId = (select lectureId
+		from
+		lectureList
+		where lectureName like #{curriculum}) and
+		<if test="type == 'noticeName'">
+			noticeName like CONCAT('%',#{keyword},'%') order by
+			noticeId desc
+		</if>
+		<if test="type == 'noticeContent'">
+			noticeContent like CONCAT('%',#{keyword},'%') order by
+			noticeId desc
+		</if>
+	</select>
+</mapper>
+
