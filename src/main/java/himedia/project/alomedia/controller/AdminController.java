@@ -52,6 +52,7 @@ public class AdminController {
 		model.addAttribute("attendance", attendance);
 		model.addAttribute("totalDate", totalDate);
 		model.addAttribute("restDay", restDay);
+		System.out.println("테스트");
 		return "admin/Attendance";
 	}
 	
