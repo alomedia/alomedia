@@ -79,57 +79,62 @@
   </div>
   <div id="tool" class="item">
 
-   <br/>  
-  **개발 환경**
-  windows10, STS3.9.18(Eclipse2.3.7), Java11, MySQL8.0.22, Lombok(1.18.30), myBatis(3.5.14) 
-  MyBatis(3.5.14), Bootstrap(5.3), Visual Studio Code(1.85.1), SpringFramework(5.2.25), JavaScript& jQuery
+<br/>  
+<br/>
 
-   <br/>
-  **설계 목적**
-   <br/>
-  출결,평가 전산화 및 편의성 제공
-
+**설계 목적**
  <br/>
-  * * *
+windows10, STS3.9.18(Eclipse2.3.7), Java11, MySQL8.0.22, Lombok(1.18.30), myBatis(3.5.14) 
+MyBatis(3.5.14), Bootstrap(5.3), Visual Studio Code(1.85.1), SpringFramework(5.2.25), JavaScript& jQuery
+<br/>
+<br/>
+
+**설계 목적**
+<br/>
+출결,평가 전산화 및 편의성 제공
+
+<br/>
+
+---------------------------------------
 
 
-  **주요 기능**
+**주요 기능**
 
 
 로그인 페이지
 <br/>
 ![1](https://github.com/alomedia/alomedia/assets/146792839/72ed6e7c-c001-4556-a7c9-fe865bd8b537)
- <br/> 
- <br/>
+<br/> 
+<br/>
 
 회원 관리 페이지
- <br/>
+<br/>
 ![2](https://github.com/alomedia/alomedia/assets/146792839/60c41c94-86ab-4647-a861-c20bb3f4f30f)
- <br/>
+<br/>
 <br/>
 강의 관리 페이지
- <br/> 
+<br/> 
 ![3](https://github.com/alomedia/alomedia/assets/146792839/90842bee-000f-4047-8331-e8e1c9ba4ce1)
- <br/>
+<br/>
 <br/>
 공지사항 페이지
- <br/>
+<br/>
 ![4](https://github.com/alomedia/alomedia/assets/146792839/8c856c37-65d1-4d81-b673-a05ca0e70b32)
- <br/> 
- <br/>
+<br/> 
+<br/>
 마이페이지 
- <br/>
+<br/>
 ![5](https://github.com/alomedia/alomedia/assets/146792839/9fd3b0a6-af89-465e-af35-c8db20b64f58)
- <br/> 
- <br/>
+<br/> 
+<br/>
 출결(강사)
- <br/>
+<br/>
 ![6](https://github.com/alomedia/alomedia/assets/146792839/28791973-3e59-495c-9c52-4d1a1bf477c9)
- <br/> 
- <br/>
+<br/> 
+<br/>
 출결(수강자)
- <br/>
+<br/>
 ![7](https://github.com/alomedia/alomedia/assets/146792839/6870ead1-d6e1-4900-9382-1e6b7bb95a3f)
- <br/> 
+<br/> 
  <br/>
 
