@@ -13,7 +13,6 @@ drop table AttendanceCheck;
 create database alomedia charset=utf8mb4;
 use alomedia;
 
-
 ## 회원 목록========================================
 create table member(
 	id bigint auto_increment,
@@ -28,7 +27,6 @@ create table member(
     curriculum char(30) not null,
     primary key(id)
 );
-select * from member;
 
 ## 강의 목록===========================================================================
 create table lectureList(
@@ -56,8 +54,7 @@ create table notice(
     noticeDate date not null,
     primary key(noticeId)
 );
-select * from notice where lectureId is null order by noticeId desc limit 2;
-select * from notice;
+
 ## 평가 목록=======================================================================
 create table examList(
 	examId bigint auto_increment,
@@ -75,12 +72,6 @@ create table examList(
 	on delete cascade
     on update cascade
 );
-select * from examList;
-select * from examList where lectureId = 2 and examName like '테스트';
-select count(*) from examList;
-select count(*) from examList where examId = 2 and examEnd < '2023-12-30 17:00:00';
-
-select * from examList where lectureId = 2 and examState in ('대기 중', '시험 중');
 
 ## 출석 ===============================================
 create table attendance(
@@ -93,9 +84,6 @@ create table attendance(
 	on delete cascade
     on update cascade
 );
-select * from attendance;
-
-select * from examList where lectureId = 2 and now between examStart and examEnd;
 
 ## 출석 목록 ==============================================
 create table AttendanceList(
@@ -110,7 +98,6 @@ create table AttendanceList(
 	on delete cascade
     on update cascade
 );
-select * from attendanceList;
 
 ## 출석 체크 시스템===============================================
 create table AttendanceCheck(
@@ -121,9 +108,6 @@ create table AttendanceCheck(
 	on delete cascade
     on update cascade
 );
-select * from AttendanceCheck;
-select attendanceNum from attendanceCheck where lectureId = 1 and attendanceDate like "2023-12-25";
-
 
 ## 평가 문제 ================================
 create table exam(
@@ -139,7 +123,6 @@ create table exam(
     on delete cascade
     on update cascade
 );
-select * from exam;
 
 ## 평가 답안 ==================================
 create table examSubmit(
@@ -162,7 +145,6 @@ create table examSubmit(
     on delete cascade
     on update cascade
 );
-select * from examSubmit;
 
 ## 응시자 목록 =================================
 create table submitList(
@@ -180,11 +162,6 @@ create table submitList(
     on delete cascade
     on update cascade
 );
-select * from submitList;
-
-select examId from examList where examEnd < '2023-12-30-17-47';
-
-select count(examId) from submitList where examId = 4 and state = '채점 중';
 
 ## 중간 표시선 전까지 입력 후, JAVA를 수강중인 학생을 만들고 추가 입력
 ## 드래그 / 컨+쉬+엔
@@ -212,11 +189,6 @@ values(2,'강의실에서 드시지 마세요','컴퓨터에 흘리는 경우가
 insert into notice(lectureId,noticeName,noticeContent,noticeWriter,noticeDate)
 values(2,'다음 주 강의는 휴강입니다.','착오없으시길 바랍니다.','teacher','2023-01-02');
 
-#===================================================================
-insert into notice(noticeName,noticeContent,noticeWriter,noticeDate)
-values('페이지네이션 테스트','테스트','홍길동','2023-01-05');
-
-
 insert into notice(noticeName,noticeContent,noticeWriter,noticeDate)
 values('안녕하세요 아로미디어입니다.','반갑습니다.','홍길동','2023-01-05');
 insert into notice(noticeName,noticeContent,noticeWriter,noticeDate)
@@ -226,9 +198,7 @@ values('대리 출석 체크에 관한 건','대리 출석 적발 시 큰 불이
 insert into notice(lectureId,noticeName,noticeContent,noticeWriter,noticeDate)
 values(1,'웹 퍼블리싱','html css','이미자','2023-01-06');
 
-
-## ===================================================================
-
+## ====================================================================================
 insert into examList(lectureId,examName,examDate,timeLimit,examState,examinee)
 values(2,'자바 기초','2023-02-01',60,'완료',1);
 insert into exam(examId,lectureId,questionNum,examContent,examAllotment)
