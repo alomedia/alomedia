@@ -128,10 +128,10 @@ footer.sticky-footer {
 										<option>-</option>
 										<c:forEach var="lectureList" items="${ lectureLists }">
 											<c:choose>
-												<c:when test="${lectureList.lectureState eq '준비중'}">
+												<c:when test="${lectureList.lectureState eq '준비 중'}">
 													<option>${lectureList.lectureName}</option>
 												</c:when>
-												<c:when test="${lectureList.lectureState eq '진행중'}">
+												<c:when test="${lectureList.lectureState eq '진행 중'}">
 													<option>${lectureList.lectureName}</option>
 												</c:when>
 											</c:choose>

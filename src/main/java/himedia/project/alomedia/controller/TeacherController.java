@@ -267,10 +267,10 @@ public class TeacherController {
 		
 		Long examId = service.findExamList(lectureId, examName).orElse(new ExamList()).getExamId();
 		
-		int cnt = 1;
+		int idx = 1;
 		for (int i = 0; i < exam.getExams().size(); i++) { 
             if(exam.getExams().get(i).getExamContent() != null)
-                service.saveExam(examId, lectureId, cnt++ ,exam.getExams().get(i));
+                service.saveExam(examId, lectureId, idx++ ,exam.getExams().get(i));
         }
 
 		return "redirect:/lms/teacher/exam";

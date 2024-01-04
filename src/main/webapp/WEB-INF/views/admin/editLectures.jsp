@@ -139,8 +139,8 @@ footer.sticky-footer {
 										<div class="col-md-4 mb-3 mt-3">
 											<label for="lectureState">상태</label>
 											<select class="custom-select d-block w-100" id="lectureState" name="lectureState">
-												<option>준비중</option>
-												<option>진행중</option>
+												<option>준비 중</option>
+												<option>진행 중</option>
 												<option>종강</option>
 												<option>기타</option>
 											</select>
