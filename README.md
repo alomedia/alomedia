@@ -1,18 +1,22 @@
-  <h1 style="">아로미디어 LMS시스템</h1>
+  <h1>아로미디어 LMS시스템</h1>
   <h2>대면 강의 관리 시스템</h2>
 
 
-  <div>프로젝트명</div>
-  <div>아로미디어</div>
+ **프로젝트명**
+ 
+ 아로미디어
 
+**개발 기간**
 
-  개발 기간
 2023 12.12 ~ 2024 1.4
-개발 인원
+
+
+**개발 인원**
+
 3명
-  </div>
+
   <div id="role" class="item">
-    <p>담당 업무</p>
+    <p><strong>담당 업무</strong></p>
     <table>
       <thead>
         <tr>
@@ -69,14 +73,14 @@
     </table>
   </div>
   <div id="tool" class="item">
-    <p>개발 환경</p>
-    <div class="content">windows10, STS3.9.18(Eclipse2.3.7), Java11, MySQL8.0.22, Lombok(1.18.30), myBatis(3.5.14)</div>
-    <div class="content">MyBatis(3.5.14), Bootstrap(5.3), Visual Studio Code(1.85.1), SpringFramework(5.2.25),
-      JavaScript
-      & jQuery</div>
+  
+  **개발 환경**
+  
+  windows10, STS3.9.18(Eclipse2.3.7), Java11, MySQL8.0.22, Lombok(1.18.30), myBatis(3.5.14) 
+  MyBatis(3.5.14), Bootstrap(5.3), Visual Studio Code(1.85.1), SpringFramework(5.2.25), JavaScript& jQuery
 
-  </div>
-  <div id="benefit" class="item">
-    <p>설계 목적</p>
-    <div class="content">출결,평가 전산화 및 편의성 제공</div>
-  </div>
+  
+  **설계 목적**
+  
+  출결,평가 전산화 및 편의성 제공
+
