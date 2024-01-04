@@ -137,4 +137,20 @@ MyBatis(3.5.14), Bootstrap(5.3), Visual Studio Code(1.85.1), SpringFramework(5.2
 ![7](https://github.com/alomedia/alomedia/assets/146792839/6870ead1-d6e1-4900-9382-1e6b7bb95a3f)
 <br/> 
  <br/>
-
+ 공지 사항 조회
+ <br/> 
+![8](https://github.com/alomedia/alomedia/assets/146792839/fb002965-13f9-49ec-85b8-1c7c8dd3e026)
+<br/> 
+<br/> 
+평가 등록(강사)
+![9](https://github.com/alomedia/alomedia/assets/146792839/432c8a69-9e88-4c72-82ae-18a82a7ff7be)
+<br/> 
+<br/> 
+평가 페이지(학생)
+<br/>
+![11](https://github.com/alomedia/alomedia/assets/146792839/2bb3a83b-205a-4ef8-9e7e-304ee07228bb)
+<br/>
+<br/>
+결과 조회(학생)
+<br/>
+![10](https://github.com/alomedia/alomedia/assets/146792839/ce673cbb-d49a-434f-9993-1c5f1b800b47)
