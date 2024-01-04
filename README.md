@@ -85,7 +85,7 @@
 **개발 환경**
  <br/>
 windows10, STS3.9.18(Eclipse2.3.7), Java11, MySQL8.0.22, Lombok(1.18.30), myBatis(3.5.14) 
-MyBatis(3.5.14), Bootstrap(5.3), Visual Studio Code(1.85.1), SpringFramework(5.2.25), JavaScript& jQuery
+Bootstrap(5.3), Visual Studio Code(1.85.1), SpringFramework(5.2.25), JavaScript& jQuery
 <br/>
 <br/>
 
