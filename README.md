@@ -12,8 +12,8 @@
 http://43.201.75.163:9999/alomedia/
 <br/>
 ID: admin / student / teacher
-PW: 1111
 <br/>
+PW: 1111
 
 
 **개발 기간**
