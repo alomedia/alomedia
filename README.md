@@ -7,6 +7,15 @@
  아로미디어
  <br/>
   <br/>
+**배포 주소**
+<br/>
+http://43.201.75.163:9999/alomedia/
+<br/>
+ID: admin / student / teacher
+PW: 1111
+<br/>
+![image](https://github.com/alomedia/alomedia/assets/146792839/e8b03ae8-0002-4d52-89b4-73b5c88de70a)
+
 
 **개발 기간**
  <br/>
